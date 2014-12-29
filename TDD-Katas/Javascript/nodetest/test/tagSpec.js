@@ -1,3 +1,5 @@
+/* global describe it before */
+
 var expect = require("chai").expect;
 var tag = require("../lib/tag.js");
 
