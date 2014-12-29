@@ -1,5 +1,11 @@
+# Node.JS TDD
 
-# String Calculator Kata (via Roy Osherove)
+This is a suite of TDD Katas that I picked from https://github.com/garora/TDD-Katas
+But now I'm using NodeJs to work with it. 
+I'm using : cloud9 IDE (as IDE and workspace), Mocha (test runner) and Chai (assertion framework). 
+
+
+## String Calculator Kata (via Roy Osherove)
 
 Create a simple String calculator with a method int Add(string numbers). 
 The method can take 0, 1 or 2 numbers, and will return their sum 
