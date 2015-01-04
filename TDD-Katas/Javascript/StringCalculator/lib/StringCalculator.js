@@ -1,21 +1,14 @@
-var sum = function(prev, current) {
-    return prev + current;
+var add = function(arg /*String*/){
+    if(arg === '') return 0;
+    return addNonEmpty(arg);
 }
 
-var stringToInt = function(input) {
-    var int = parseInt(input);
-    if (isNaN(int)) 
-        throw new Error('Input is not integer');
-    return int;
-}
-
-var sumOfNumbers = function (numbers, delimiter) {
-    return numbers.split(delimiter)
-                .map(stringToInt)
-                .reduce(sum,0); 
+var addNonEmpty = function(arg) {
+    var tuple = getDelimeterAndNumbers(arg);
+    throwIfContainsNegative(tuple.numbers, tuple.delimiter);
+    return sumOfNumbers(tuple.numbers, tuple.delimiter);
     
 }
-
 var getDelimeterAndNumbers = function (arg) {
     var arr = arg.split('\\');
     return {
@@ -31,18 +24,23 @@ var throwIfContainsNegative = function(numbers, delimiter) {
         throw 'negative not allowed: ' + negativeNumber.join(',');
 }
 
-var addNonEmpty = function(arg) {
-    var tuple = getDelimeterAndNumbers(arg);
-    throwIfContainsNegative(tuple.numbers, tuple.delimiter);
-    return sumOfNumbers(tuple.numbers, tuple.delimiter);
+var sumOfNumbers = function (numbers, delimiter) {
+    return numbers.split(delimiter)
+                .map(stringToInt)
+                .reduce(sum,0); 
     
 }
 
-var add = function(arg){
-    if(arg === '') return 0;
-    return addNonEmpty(arg);
+var stringToInt = function(input) {
+    var int = parseInt(input);
+    if (isNaN(int)) 
+        throw new Error('Input is not integer');
+    return int;
 }
- 
+
+var sum = function(prev, current) {
+    return prev + current;
+}
 
 // Export 
 exports.add = add;
